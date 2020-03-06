@@ -6,12 +6,11 @@
 //  Copyright © 2020 Touchlane LLC. All rights reserved.
 //
 
-import UIKit
 import CampcotCollectionView
+import UIKit
 
 class StoryboardViewController: UIViewController {
-
-    @IBOutlet weak var collectionView: CampcotCollectionView!
+    @IBOutlet var collectionView: CampcotCollectionView!
 
     let itemsInRow = 2
     var itemsInSection: [Int: Int] = [:]
@@ -38,7 +37,8 @@ extension StoryboardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CustomCollectionViewCell.reuseIdentifier,
-            for: indexPath) as! CustomCollectionViewCell
+            for: indexPath
+        ) as! CustomCollectionViewCell
         cell.text = "\(indexPath.section):\(indexPath.row)"
         return cell
     }
@@ -47,7 +47,8 @@ extension StoryboardViewController: UICollectionViewDataSource {
         let view = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: CustomHeaderView.reuseIdentifier,
-            for: indexPath) as! CustomHeaderView
+            for: indexPath
+        ) as! CustomHeaderView
         view.section = indexPath.section
         view.text = "section: \(indexPath.section)"
         view.delegate = self
@@ -70,6 +71,6 @@ extension StoryboardViewController: UICollectionViewDelegateFlowLayout {
 
 extension StoryboardViewController: CustomHeaderViewDelegate {
     func selectSection(section: Int) {
-        self.collectionView.toggle(to: section, animated: true)
+        collectionView.toggle(to: section, animated: true)
     }
 }

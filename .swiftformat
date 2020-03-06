@@ -1,0 +1,13 @@
+--commas inline
+--header ignore
+--indent 4
+--patternlet inline
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--nospaceoperators ..<, ...
+--swiftversion 5.0
+
+--enable isEmpty
+--disable unusedArguments, trailingClosures, redundantReturn
+--exclude Pods, scripts
